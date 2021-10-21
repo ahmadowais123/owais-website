@@ -1,18 +1,19 @@
 name: NodeJS with Gulp
 
 on: 
-  push:
-    branches: [master]
+  pull_request:
+    types: [closed]
 
 jobs:
   build:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [14.x]
     
-    steps:
+    steps
     - uses: actions/checkout@v2
 
     - name: Use Node.js ${{ matrix.node-version }}
