@@ -23,4 +23,9 @@ jobs:
         npm install -g @angular/cli
         npm install
         ng build
-        ls
+
+    - name: Verify build files
+      run: |
+        ls -altr
+        ls -altr dist
+        cat dist/owais-website/index.html
